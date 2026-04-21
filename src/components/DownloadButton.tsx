@@ -8,9 +8,11 @@ interface DownloadButtonProps {
   presetId: string;
   fileUrl: string;
   presetName: string;
+  text?: string;
+  dataAttr?: string;
 }
 
-export default function DownloadButton({ presetId, fileUrl, presetName }: DownloadButtonProps) {
+export default function DownloadButton({ presetId, fileUrl, presetName, text, dataAttr }: DownloadButtonProps) {
   const [status, setStatus] = useState<'idle' | 'downloading' | 'done'>('idle');
 
   const handleDownload = () => {
@@ -38,6 +40,7 @@ export default function DownloadButton({ presetId, fileUrl, presetName }: Downlo
       className={`${styles.button} ${status !== 'idle' ? styles[status] : ''}`}
       onClick={handleDownload}
       disabled={status === 'downloading'}
+      {...(dataAttr ? { [dataAttr]: "true" } : {})}
     >
       <span className={styles.icon}>
         {status === 'idle' && (
@@ -55,7 +58,7 @@ export default function DownloadButton({ presetId, fileUrl, presetName }: Downlo
         )}
       </span>
       <span className={styles.text}>
-        {status === 'idle' && 'Download Free'}
+        {status === 'idle' && (text || 'Download Free')}
         {status === 'downloading' && 'Preparing File...'}
         {status === 'done' && 'Downloaded! ✓'}
       </span>

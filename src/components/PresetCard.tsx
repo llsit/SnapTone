@@ -29,6 +29,8 @@ export default function PresetCard({ preset }: PresetCardProps) {
           className={styles.beforeImage}
         />
         <div className={styles.badge}>{preset.category}</div>
+        {preset.downloads > 2000 && <div className={styles.statusBadge}>Popular</div>}
+        {preset.downloads > 1000 && preset.downloads <= 2000 && <div className={styles.statusBadge}>Trending</div>}
         <div className={styles.indicator}>Hover to see before</div>
       </div>
       
@@ -41,6 +43,7 @@ export default function PresetCard({ preset }: PresetCardProps) {
               presetId={preset.id}
               fileUrl={preset.fileUrl}
               presetName={preset.name}
+              text="Get This Look"
             />
           </div>
         </div>
