@@ -1,0 +1,80 @@
+.detailLayout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 4rem;
+  align-items: start;
+}
+
+.visuals {
+  position: sticky;
+  top: 110px;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.category {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.name {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-top: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.tag {
+  background: var(--surface);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ctaWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fineprint {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .detailLayout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .visuals {
+    position: static;
+  }
+  
+  .name {
+    font-size: 2.5rem;
+  }
+}

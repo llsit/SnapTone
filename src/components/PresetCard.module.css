@@ -1,0 +1,99 @@
+.card {
+  display: block;
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 168, 67, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.imageContainer {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.afterImage, .beforeImage {
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+.beforeImage {
+  opacity: 0;
+}
+
+.card:hover .beforeImage {
+  opacity: 1;
+}
+
+.card:hover .afterImage {
+  opacity: 0;
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  color: var(--accent);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 5;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 1.5rem 1rem 0.5rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .indicator {
+  opacity: 1;
+}
+
+.info {
+  padding: 1.5rem;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.downloads {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}

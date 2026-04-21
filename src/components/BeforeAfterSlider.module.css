@@ -1,0 +1,85 @@
+.container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  cursor: ew-resize;
+  background: var(--surface);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.afterImage, .beforeImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  pointer-events: none;
+}
+
+.afterImage img, .beforeImage img {
+  object-fit: cover;
+}
+
+.beforeImage {
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sliderLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: white;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sliderButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.labels {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.afterLabel, .beforeLabel {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    aspect-ratio: 1 / 1;
+  }
+}

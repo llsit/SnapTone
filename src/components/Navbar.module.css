@@ -1,0 +1,44 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.links {
+  display: flex;
+  gap: 2rem;
+}
+
+.links a {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  transition: var(--transition-smooth);
+}
+
+.links a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+}

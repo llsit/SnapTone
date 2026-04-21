@@ -1,0 +1,41 @@
+.filterWrapper {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 0.5rem;
+}
+
+.filterList {
+  display: flex;
+  gap: 0.75rem;
+  background: var(--surface);
+  padding: 0.5rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pill {
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition-smooth);
+  white-space: nowrap;
+}
+
+.pill:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.pill.active {
+  background: var(--accent);
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  .filterWrapper {
+    justify-content: flex-start;
+  }
+}
