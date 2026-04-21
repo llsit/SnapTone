@@ -1,17 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { presets } from '@/data/presets';
-import { Category } from '@/lib/types';
+import { Preset, Category } from '@/lib/types';
 import PresetCard from './PresetCard';
 import CategoryFilter from './CategoryFilter';
 import styles from './PresetGrid.module.css';
 
 interface PresetGridProps {
+  presets: Preset[];
   initialCategory?: Category;
 }
 
-export default function PresetGrid({ initialCategory = 'All' }: PresetGridProps) {
+export default function PresetGrid({ presets, initialCategory = 'All' }: PresetGridProps) {
   const [activeCategory, setActiveCategory] = useState<Category>(initialCategory);
 
   const filteredPresets = activeCategory === 'All'

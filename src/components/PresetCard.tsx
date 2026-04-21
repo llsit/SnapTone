@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Preset } from '@/lib/types';
+import DownloadButton from './DownloadButton';
 import styles from './PresetCard.module.css';
 
 interface PresetCardProps {
@@ -35,7 +36,13 @@ export default function PresetCard({ preset }: PresetCardProps) {
         <h3 className={styles.name}>{preset.name}</h3>
         <div className={styles.footer}>
           <span className={styles.downloads}>{preset.downloads.toLocaleString()} downloads</span>
-          <span className={styles.cta}>View Details →</span>
+          <div className={styles.downloadWrapper} onClick={(e) => e.preventDefault()}>
+            <DownloadButton 
+              presetId={preset.id}
+              fileUrl={preset.fileUrl}
+              presetName={preset.name}
+            />
+          </div>
         </div>
       </div>
     </Link>

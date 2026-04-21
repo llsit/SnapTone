@@ -1,13 +1,14 @@
-import { presets } from '@/data/presets';
+import { Preset } from '@/lib/types';
 import PresetCard from './PresetCard';
 import styles from './RelatedPresets.module.css';
 
 interface RelatedPresetsProps {
+  presets: Preset[];
   currentId: string;
   category: string;
 }
 
-export default function RelatedPresets({ currentId, category }: RelatedPresetsProps) {
+export default function RelatedPresets({ presets, currentId, category }: RelatedPresetsProps) {
   const related = presets
     .filter(p => p.category === category && p.id !== currentId)
     .slice(0, 3);

@@ -1,4 +1,4 @@
-import { presets } from '@/data/presets';
+import { fetchPresets, fetchPresetById } from '@/lib/api';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
@@ -6,7 +6,8 @@ import DownloadButton from '@/components/DownloadButton';
 import RelatedPresets from '@/components/RelatedPresets';
 import styles from './page.module.css';
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const presets = await fetchPresets();
   return presets.map((preset) => ({
     id: preset.id,
   }));
@@ -14,7 +15,8 @@ export function generateStaticParams() {
 
 export default async function PresetDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const preset = presets.find((p) => p.id === id);
+  const preset = await fetchPresetById(id);
+  const allPresets = await fetchPresets();
 
   if (!preset) {
     notFound();
@@ -48,6 +50,7 @@ export default async function PresetDetail({ params }: { params: Promise<{ id: s
 
           <div className={styles.ctaWrapper}>
             <DownloadButton 
+              presetId={preset.id}
               fileUrl={preset.fileUrl} 
               presetName={preset.name} 
             />
@@ -59,7 +62,7 @@ export default async function PresetDetail({ params }: { params: Promise<{ id: s
       </div>
 
       <div className="container">
-        <RelatedPresets currentId={preset.id} category={preset.category} />
+        <RelatedPresets presets={allPresets} currentId={preset.id} category={preset.category} />
       </div>
 
       <footer className="section-padding" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>

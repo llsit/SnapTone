@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import PresetGrid from '@/components/PresetGrid';
+import { fetchPresets } from '@/lib/api';
 import styles from './Landing.module.css';
 
 export const metadata = {
@@ -7,7 +8,9 @@ export const metadata = {
   description: 'Download the best free Lightroom presets for cafe and lifestyle photography. Transform your coffee shop shots instantly.',
 };
 
-export default function CafeLanding() {
+export default async function CafeLanding() {
+  const presets = await fetchPresets();
+
   return (
     <main>
       <Navbar />
@@ -23,7 +26,7 @@ export default function CafeLanding() {
         </div>
       </header>
 
-      <PresetGrid initialCategory="Cafe" />
+      <PresetGrid presets={presets} initialCategory="Cafe" />
       
       <footer className="section-padding" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
         <div className="container">

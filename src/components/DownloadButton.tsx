@@ -1,18 +1,23 @@
 'use client';
 
 import { useState } from 'react';
+import { incrementDownload } from '@/lib/api';
 import styles from './DownloadButton.module.css';
 
 interface DownloadButtonProps {
+  presetId: string;
   fileUrl: string;
   presetName: string;
 }
 
-export default function DownloadButton({ fileUrl, presetName }: DownloadButtonProps) {
+export default function DownloadButton({ presetId, fileUrl, presetName }: DownloadButtonProps) {
   const [status, setStatus] = useState<'idle' | 'downloading' | 'done'>('idle');
 
   const handleDownload = () => {
     setStatus('downloading');
+    
+    // Track download in background
+    incrementDownload(presetId);
     
     // Simulate download delay
     setTimeout(() => {

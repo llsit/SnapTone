@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import PresetGrid from '@/components/PresetGrid';
+import { fetchPresets } from '@/lib/api';
 import styles from '../cafe-presets-free/Landing.module.css'; // Reusing styles
 
 export const metadata = {
@@ -7,7 +8,9 @@ export const metadata = {
   description: 'Elevate your photos with cinematic moody and film-look presets. Download free premium Lightroom presets.',
 };
 
-export default function MoodyLanding() {
+export default async function MoodyLanding() {
+  const presets = await fetchPresets();
+
   return (
     <main>
       <Navbar />
@@ -23,7 +26,7 @@ export default function MoodyLanding() {
         </div>
       </header>
 
-      <PresetGrid initialCategory="Moody" />
+      <PresetGrid presets={presets} initialCategory="Moody" />
       
       <footer className="section-padding" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
         <div className="container">
