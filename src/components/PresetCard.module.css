@@ -1,23 +1,23 @@
 .card {
   display: block;
   background: var(--surface);
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-none);
   overflow: hidden;
-  transition: var(--transition-smooth);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition-editorial);
+  border: 1px solid var(--border);
   position: relative;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(212, 168, 67, 0.3);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  border-color: var(--foreground);
+  box-shadow: var(--shadow-editorial);
 }
 
 .imageContainer {
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
+  border-bottom: 1px solid var(--border);
 }
 
 .afterImage, .beforeImage {
@@ -41,16 +41,17 @@
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  color: var(--accent);
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-pill);
-  font-size: 0.75rem;
-  font-weight: 600;
+  background: var(--background);
+  color: var(--text-primary);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-none);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   z-index: 5;
+  border: 1px solid var(--border);
 }
 
 .indicator {
@@ -58,13 +59,17 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  background: rgba(10, 10, 10, 0.9);
   color: #fff;
-  font-size: 0.7rem;
-  padding: 1.5rem 1rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 1rem;
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .card:hover .indicator {
@@ -72,57 +77,68 @@
 }
 
 .info {
-  padding: 1.5rem;
+  padding: 2rem;
+}
+
+.metadata {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  line-height: 1;
 }
 
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
 }
 
 .downloads {
-  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   color: var(--text-secondary);
-}
-
-.cta {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 .statusBadge {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: var(--accent);
-  color: #000;
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-pill);
-  font-size: 0.65rem;
-  font-weight: 800;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-none);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   z-index: 5;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .downloadWrapper {
   max-width: 140px;
-  transform: scale(0.7);
-  transform-origin: right center;
 }
 
 @media (max-width: 768px) {
-  .downloadWrapper {
-    max-width: 110px;
-    transform: scale(0.65);
+  .info {
+    padding: 1.5rem;
   }
 }

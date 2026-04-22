@@ -3,21 +3,22 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  background: var(--accent);
-  color: #000;
+  background: var(--gradient-accent);
+  color: #fff;
   font-weight: 700;
-  padding: 1rem 2.5rem;
-  border-radius: var(--radius-pill);
+  padding: 1.25rem 2rem;
+  border-radius: var(--radius-md);
   transition: var(--transition-smooth);
   width: 100%;
   max-width: 320px;
   font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
 .button:hover:not(:disabled) {
-  background: var(--accent-light);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(212, 168, 67, 0.4);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+  filter: brightness(1.1);
 }
 
 .button:disabled {
@@ -28,10 +29,11 @@
 .downloading {
   background: var(--surface-hover);
   color: var(--text-primary);
+  border: 1.5px solid var(--border);
 }
 
 .done {
-  background: #2ecc71;
+  background: linear-gradient(135deg, #059669, #10b981);
   color: #fff;
 }
 
@@ -51,11 +53,6 @@
 @media (max-width: 768px) {
   .button {
     max-width: none;
-    position: fixed;
-    bottom: 2rem;
-    left: 1.5rem;
-    right: 1.5rem;
-    z-index: 100;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    padding: 1rem 1.5rem;
   }
 }

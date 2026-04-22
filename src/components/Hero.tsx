@@ -1,3 +1,4 @@
+import BeforeAfterSlider from './BeforeAfterSlider';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -10,16 +11,23 @@ export default function Hero() {
             <span className="text-gradient">Instantly</span>
           </h1>
           <p className={styles.subtitle}>
-            Discover high-quality Lightroom presets for creators, travelers, and lifestyle photographers. 1-click magic for your best shots.
+            Professional cinematic presets in one click. Designed for creators, travelers, and lifestyle photographers.
           </p>
           <div className={styles.actions}>
             <a href="#explore" className="btn-primary">
-              Browse Presets
+              Get Free Preset
             </a>
             <a href="#how" className="btn-outline">
               Learn More
             </a>
           </div>
+        </div>
+
+        <div className={styles.previewWrapper}>
+          <BeforeAfterSlider
+            beforeImage="/images/presets/portra-400-before.jpg"
+            afterImage="/images/presets/portra-400-after.jpg"
+          />
         </div>
       </div>
       <div className={styles.background}>

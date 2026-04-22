@@ -33,13 +33,13 @@ export default function PresetCard({ preset }: PresetCardProps) {
         {preset.downloads > 1000 && preset.downloads <= 2000 && <div className={styles.statusBadge}>Trending</div>}
         <div className={styles.indicator}>Hover to see before</div>
       </div>
-      
+
       <div className={styles.info}>
         <h3 className={styles.name}>{preset.name}</h3>
         <div className={styles.footer}>
           <span className={styles.downloads}>{preset.downloads.toLocaleString()} downloads</span>
           <div className={styles.downloadWrapper} onClick={(e) => e.preventDefault()}>
-            <DownloadButton 
+            <DownloadButton
               presetId={preset.id}
               fileUrl={preset.fileUrl}
               presetName={preset.name}
